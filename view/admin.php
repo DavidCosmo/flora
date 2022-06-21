@@ -130,25 +130,6 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="#mVenda">
-                              <div class="menu-bg m-0 px-2 py-2 rounded-1">
-                                <span data-feather="home" class="align-text-bottom"></span> Gráfico
-                              </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#proCadastro">
-                            <div class="menu-bg m-0 px-2 py-2 rounded-1">
-                                <span data-feather="file" class="align-text-bottom"></span> Produtos
-                            </div>
-                            </a>
-                        </li>
-                    </ul>
-            </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -167,7 +148,7 @@
                     </div>
                 </div>
 
-                <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+                
 
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 id="proCadastro" class="h2">Produtos cadastrados</h1>
@@ -179,8 +160,15 @@
                     </div>
                 </div>
 
-                <form method="POST" action="../model/cadastroDB.php">
+                <form method="POST" action="../model/cadastroDB.php" enctype="multipart/form-data">
                 <div class="row g-2 mb-4">
+
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                <p> <label for="">Selecione o arquivo</label>
+                                <input multiple name="arquivo[]" type="file"> </p>
+                            </div>
+                        </div>
                         <div class="col-md-3">
                             <div class="form-floating">
                             <input type="text" name="pro_nome" data-ls-module="charCounter" maxlength="40" class="form-control" id="floatingInputGrid" placeholder="name@example.com">
@@ -217,7 +205,7 @@
                             </div>
                         </div>
                         <div class="col-md-1">
-                            <button class="btn btn-pink p-3 b-shadow"  name="update">Salvar</button>
+                            <button class="btn btn-pink p-3 b-shadow" name="submit" name="update">Salvar</button>
                         </div>
                     </div>
                     </div>
@@ -227,12 +215,14 @@
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
+                                
                                 <th scope="col">ID</th>
                                 <th scope="col">Preço</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Quantidade</th>
                                 <th scope="col">Categoria</th>
                                 <th scope="col">Ações</th>
+                                <th scope="col">Foto</th>
                             </tr>
                         </thead>
                         <tbody>
