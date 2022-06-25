@@ -22,12 +22,15 @@ class Produto{
         die("Tipo de arquivo não aceito");
     
     $path =  $pasta . $novoNomeDoArquivo . "." . $extensao;
-    echo $path;
     
     $deu_certo = move_uploaded_file($tmp_name, $path);
     if($path) {
-       $pdo->query("INSERT INTO tb_foto_has_pro (ft_foto, ft_path) VALUES ('$path', '$nomeDoArquivo')");
-       var_dump($_FILES['arquivo']);
+        $pro_preco = $_POST['pro_preco'];
+        $pro_nome = $_POST['pro_nome'];
+        $pro_quantidade = $_POST['pro_quantidade'];
+        $tb_categoria_has_pro_cat_id = $_POST['tb_categoria_has_pro_cat_id'];
+        $pdo->query("INSERT INTO tb_produto (pro_foto, pro_path, pro_preco, pro_nome, pro_quantidade, tb_categoria_has_pro_cat_id) VALUES ('$path', '$nomeDoArquivo', '$pro_preco','$pro_nome', '$pro_quantidade', '$tb_categoria_has_pro_cat_id')");
+
        return true;
     } else
        return false;

@@ -104,6 +104,48 @@
 
 
         <!-- Área dos produtos -->
+
+        <?php
+
+                            $server = "localhost";
+                            $user = "root";
+                            $pass = "admin";
+                            $DB = "floricultura";
+
+                            $mysqli = new mysqli($server, $user, $pass, $DB);
+
+
+                            $sql = "SELECT * FROM tb_produto ORDER BY pro_id ASC";
+
+                            $result = $mysqli->query($sql);
+
+                            while($user_data = mysqli_fetch_assoc($result)){
+                                echo  "<div class='container espaco'>
+                                <div class='row espaco'>
+                                    <div class='col'>
+                                        <div class='card my-img border-0 shadow-sm'>
+                                            <a href='flor-1.php' style='text-decoration: none;'>
+                                                <img src='".$user_data['pro_foto']."' class='card-img-top ' alt='... '>
+                                                <div class='card-body'>
+                                                <p class='card-text text-dark fw-bold fs-4'>".$user_data['pro_nome']."</p>
+                                                <small class='text-muted text-decoration-line-through'>".$user_data['pro_preco']."</small><br>
+                                                <span class='card-text text-secondary fw-bold py-0 fs-5'>".$user_data['pro_preco']."</span><br>
+                                                <small class='text-muted'>8x de R$ 28,74 sem juros no cartão</small>
+                                                <p>
+                                                    <i class='bx bxs-star text-warning'></i>
+                                                    <i class='bx bxs-star text-warning'></i>
+                                                    <i class='bx bxs-star text-warning'></i>
+                                                    <i class='bx bxs-star-half text-warning'></i>
+                                                    <i class='bx bx-star text-warning' ></i>
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                            }
+                        ?>
         <div class="container espaco">
             <div class="row espaco">
                 <div class="col">

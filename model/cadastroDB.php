@@ -9,10 +9,10 @@ isset($_POST['tb_categoria_has_pro_cat_id']) && !empty($_POST['tb_categoria_has_
 ){
 
 
-    $pro_preco = $_POST['pro_preco'];
-    $pro_nome = $_POST['pro_nome'];
-    $pro_quantidade = $_POST['pro_quantidade'];
-    $tb_categoria_has_pro_cat_id = $_POST['tb_categoria_has_pro_cat_id'];
+    $pro_preco = $_GET['pro_preco'];
+    $pro_nome = $_GET['pro_nome'];
+    $pro_quantidade = $_GET['pro_quantidade'];
+    $tb_categoria_has_pro_cat_id = $_GET['tb_categoria_has_pro_cat_id'];
 
     $sql="INSERT INTO tb_produto (pro_preco, pro_nome, pro_quantidade, tb_categoria_has_pro_cat_id) VALUES ('$pro_preco','$pro_nome', '$pro_quantidade', '$tb_categoria_has_pro_cat_id')";
 

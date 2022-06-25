@@ -221,8 +221,9 @@
                                 <th scope="col">Nome</th>
                                 <th scope="col">Quantidade</th>
                                 <th scope="col">Categoria</th>
-                                <th scope="col">Ações</th>
                                 <th scope="col">Foto</th>
+                                <th scope="col">Ações</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -234,6 +235,8 @@
                                 echo "<td>".$user_data['pro_nome']."</td>";
                                 echo "<td>".$user_data['pro_quantidade']."</td>";
                                 echo "<td>".$user_data['tb_categoria_has_pro_cat_id']."</td>";
+                                echo "<td>".'<img height="50px" src='.$user_data['pro_foto'].'>'."</td>";
+                                
                                 echo "<td>
                                     <a class='btn btn-sm btn-primary' href='adminEditar.php?id=$user_data[pro_id]'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
@@ -249,9 +252,12 @@
                                 echo "</tr>";
                             }
                         ?>
+
+                    
                         </tbody>
                     </table>
                 </div>
+                
             </main>
         </div>
     </div>
